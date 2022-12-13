@@ -8,7 +8,7 @@ function update(tabId, state) {
 chrome.tabs.onUpdated.addListener(function (tabId) {
   chrome.pageAction.show(tabId);
   tabState[tabId] = 0;
-  update(tabId, "pending");
+  //update(tabId, "pending"); Let's just keep the extension active
 });
 
 var tabState = {};
