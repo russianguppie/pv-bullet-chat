@@ -23,7 +23,7 @@ $(document).on("submit", ".bullet-gun", function () {
     type: "bullet-shot",
     bullet: bullet,
   });
-  $(this).find('input[name="content"]').setAttribute("Send a message");
+  $(this).find('input[name="content"]').val('');
   event.preventDefault();
 });
 
