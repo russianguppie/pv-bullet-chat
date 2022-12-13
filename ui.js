@@ -10,14 +10,20 @@ function objectifyForm(formArray) {
   }
   return obj;
 }
+function getRandomArbitrary(max, min) {
+  return Math.random() * (max - min) + min;
+}
 
+const obj = {Top: [0.3, 0], Middle: [0.65, 0.3], Bottom: [1, 0.65], Random: [1, 0]};
+const positionMap = new Map(Object.entries(obj));
 $(document).on("submit", ".bullet-gun", function () {
+  console.log($(this).serializeArray())
   let bullet = objectifyForm($(this).serializeArray());
   let duration = 5000 + Math.floor(Math.random() * 5000);
   let size = bullet["size"];
-  bullet["position"] = `calc((100% - ${size}rem) * ${
-    Math.random() * 0.85 + 0.05
-  })`;
+  let positionList = positionMap.get(bullet["positionPreference"].toString());
+  let random = getRandomArbitrary(positionList[0], positionList[1]) * 0.85 + 0.05
+  bullet["position"] = `calc((100% - ${size}rem) * ${random})`;
   bullet["duration"] = duration;
   chrome.runtime.sendMessage({
     type: "bullet-shot",
