@@ -57,15 +57,40 @@ input[type="text"].bullet-control {
   margin-bottom: 0.2rem;
 }
 
+.bullet-control-row + * {
+  margin-bottom: 0.2rem;
+}
+
+.bullet-history-box {
+  margin-bottom: 0.2rem;
+}
+
+.bullet-history-box + * {
+  margin-bottom: 0.2rem;
+}
+
 .bullet-open-advanced {
   width: 24px;
-  margin-left: -32px;
+  margin-left: -40px;
 }
 
 .bullet-open-advanced + * {
-  margin-left: -32px;
+  margin-left: -40px;
+}
+
+.bullet-open-history {
+  width: 28px;
+  margin-left: -16px;
+}
+
+.bullet-open-history + * {
+  margin-left: -16px;
 }
 
 .bullet-advanced {
+  display: none;
+}
+
+.bullet-history {
   display: none;
 }
