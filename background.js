@@ -1,50 +1,54 @@
-var socket = io('http://feelingjy.me:3000');
+var socket = io("http://localhost:3000");
 
 function update(tabId, state) {
-  chrome.pageAction.setIcon({path: `icons/48x48_${state}.png`, tabId: tabId});
-  chrome.tabs.sendMessage(tabId, {type: state});
+  chrome.pageAction.setIcon({ path: `icons/48x48_${state}.png`, tabId: tabId });
+  chrome.tabs.sendMessage(tabId, { type: state });
 }
 
-chrome.tabs.onUpdated.addListener(function(tabId) {
+chrome.tabs.onUpdated.addListener(function (tabId) {
   chrome.pageAction.show(tabId);
   tabState[tabId] = 0;
-  update(tabId, 'pending');
+  update(tabId, "pending");
 });
 
 var tabState = {};
-chrome.pageAction.onClicked.addListener(function(tab) {
+chrome.pageAction.onClicked.addListener(function (tab) {
   tabState[tab.id] ^= 1;
-  let state = ['pending','active'][tabState[tab.id]];
+  let state = ["pending", "active"][tabState[tab.id]];
   update(tab.id, state);
 });
 
-chrome.runtime.onMessage.addListener(function(msg, sender, sendRes) {
+chrome.runtime.onMessage.addListener(function (msg, sender, sendRes) {
   switch (msg.type) {
-    case 'bullet-shot':
-      socket.emit('bullet', msg.bullet);
+    case "bullet-shot":
+      socket.emit("bullet", msg.bullet);
       delegateBullet(msg.bullet);
       break;
     default:
-      alert(`unknow request: ${JSON.stringify(msg)} from sender ${JSON.stringify(sender)}`);
+      alert(
+        `unknow request: ${JSON.stringify(msg)} from sender ${JSON.stringify(
+          sender
+        )}`
+      );
   }
 });
 
 function delegateBullet(bullet) {
-  chrome.tabs.query({url: bullet['target']}, function(tabs) {
+  chrome.tabs.query({ url: bullet["target"] }, function (tabs) {
     console.log(tabs);
     for (let tab of tabs) {
       if (tabState[tab.id]) {
-        console.log('sending to tab');
+        console.log("sending to tab");
         chrome.tabs.sendMessage(tab.id, {
-          type: 'shot',
-          bullet: bullet
+          type: "shot",
+          bullet: bullet,
         });
       }
     }
   });
 }
 
-socket.on('bullet', function(msg) {
+socket.on("bullet", function (msg) {
   console.log(`got a bullet: ${JSON.stringify(msg)}`);
   delegateBullet(msg);
 });

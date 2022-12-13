@@ -1,66 +1,71 @@
 .tooltip {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .tooltip .tooltiptext {
-    visibility: hidden;
-    font-size: 0.8rem;
-    background-color: #666;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 10px;
-    white-space: nowrap;
+  visibility: hidden;
+  font-size: 0.8rem;
+  background-color: #666;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 10px;
+  white-space: nowrap;
 
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 0;
 }
 
 .tooltip:hover .tooltiptext {
-    visibility: visible;
+  visibility: visible;
 }
 
-[class^="bullet-"], [class*=" bullet-"] {
-    font-size: 1rem;
+[class^="bullet-"],
+[class*=" bullet-"] {
+  font-size: 1rem;
+  border-radius: 5px;
 }
 
 .bullet-gun {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 0 !important;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px 5px 10px 5px;
-    border-radius: 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 0 !important;
+  background-image: linear-gradient(180deg, #1b2530 0, rgba(27, 37, 48, 0.85));
+  padding: 10px 5px 10px 5px;
 }
 
 .bullet-control-sm {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 input[type="range"].bullet-control-sm {
-    height: 0.5rem;
-    width: 50px;
-    margin-top: 0.5rem;
+  height: 0.5rem;
+  width: 50px;
+  margin-top: 0.5rem;
+}
+
+input[type="text"].bullet-control {
+  width: fit-content;
 }
 
 .bullet-control-row {
-    margin-bottom: 0.2rem;
+  margin-bottom: 0.2rem;
 }
 
 .bullet-open-advanced {
-    width: 24px;
-    margin-left: -32px;
+  width: 24px;
+  margin-left: -32px;
 }
 
 .bullet-open-advanced + * {
-    margin-left: -32px;
+  margin-left: -32px;
 }
 
 .bullet-advanced {
-    display: none;
+  display: none;
 }
