@@ -29,7 +29,7 @@ $(document).on("submit", ".bullet-gun", function () {
     type: "bullet-shot",
     bullet: bullet,
   });
-  $(this).find('input[name="content"]').focus().select();
+  $(this).find('input[name="content"]').val('');
   event.preventDefault();
 });
 
