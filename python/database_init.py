@@ -5,7 +5,7 @@ import os
 def create_connection(db_file):
     conn = None
     try:
-        conn = sqlite3.connect(db_file)
+        conn = sqlite3.connect(db_file, check_same_thread=False)
     except Error as e:
         print(e)
     return conn

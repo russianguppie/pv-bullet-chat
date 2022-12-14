@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify
 import json
 
 app = Flask(__name__)
+conn = database_init.init_database()
 
 @app.route('/bullets', methods=['GET'])
 def get_bullets():
@@ -19,12 +20,15 @@ def get_bullets():
 
 @app.route('/', methods=['POST'])
 def update_record():
-    record = json.loads(request.data)
-    return jsonify(record)
+    bulletChatJson = json.loads(request.data)
+    record = (
+    bulletChatJson['user'],
+    bulletChatJson['message'],
+    bulletChatJson['video'],
+    bulletChatJson['timeline']
+    )
+    database_init.create_bullet(conn, record)
+    return {'status': 'great success'}
 
-def init():
-    conn = database_init.init_database()
-    
 if __name__ == '__main__':
-    init()
     app.run("", 8080)
