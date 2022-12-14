@@ -6,6 +6,13 @@
   </head>
   <body>
     <form name="gun" class="bullet-gun">
+      <div class="bullet-history">
+        <div class="bullet-history-box">
+          <h4>Bullet Chat History</h4>>
+          <div id="historyLine">
+          </div>
+        </div>
+      </div>
       <div class="bullet-advanced">
         <div class="bullet-control-row">
           <div class="tooltip">
@@ -24,7 +31,7 @@
               class="bullet-control-sm"
               type="color"
               name="color"
-              value="#555555"
+              value="#ffffff"
             />
             <span class="tooltiptext">Color</span>
           </div>
@@ -57,8 +64,13 @@
           <input type="button" class="bullet-open-advanced" value="+" />
           <span class="tooltiptext">Advanced Settings</span>
         </div>
+        <div class="tooltip">
+          <input type="button" class="bullet-open-history" value="H" />
+          <span class="tooltiptext">Show History</span>
+        </div>
         <input
           type="text"
+          id="bullet"
           class="bullet-control"
           name="content"
           placeholder="Say something..."
@@ -69,5 +81,24 @@
         <input type="submit" name="gun" style="display: none" />
       </div>
     </form>
+    <style>
+      .bullet-gun {
+        opacity: 70%;
+      }
+      h4 {
+        color: #ffffff;
+        font-size: 18;
+        line-height: 0;
+        margin: 2;
+      }
+      #historyLine {
+        color: #ffffff;
+        text-align: left;
+        width: 100%;
+        height: auto;
+        font-size: 16;
+        font-family: Serif;
+      }
+    </style>
   </body>
 </html>
