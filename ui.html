@@ -8,7 +8,7 @@
     <form name="gun" class="bullet-gun">
       <div class="bullet-history">
         <div class="bullet-history-box">
-          <h4>Bullet Chat History</h4>>
+          <h4>Chat</h4>
           <div id="historyLine">
           </div>
         </div>
@@ -36,6 +36,15 @@
             <span class="tooltiptext">Color</span>
           </div>
           <div class="tooltip">
+            <select name="positionPreference" style="height: 24px; position: relative; bottom: 2px">
+              <option value="Random">Random</option>
+              <option value="Top">Top</option>
+              <option value="Middle">Middle</option>
+              <option value="Bottom">Bottom</option>
+            </select>
+            <span class="tooltiptext">Position</span>
+          </div>
+          <div class="tooltip">
             <input
               class="bullet-control-sm"
               type="range"
@@ -45,15 +54,6 @@
               value="1"
               step="0.1"
             />
-            <span class="tooltiptext">Opacity</span>
-          </div>
-          <div class="tooltip">
-          <select name="positionPreference">
-            <option value="Random">Random</option>
-            <option value="Top">Top</option>
-            <option value="Middle">Middle</option>
-            <option value="Bottom">Bottom</option>
-          </select>
             <span class="tooltiptext">Opacity</span>
           </div>
         </div>
@@ -68,37 +68,18 @@
           <input type="button" class="bullet-open-history" value="H" />
           <span class="tooltiptext">Show History</span>
         </div>
-        <input
-          type="text"
-          id="bullet"
-          class="bullet-control"
-          name="content"
-          placeholder="Say something..."
-          required
-          autocomplete="off"
-          autofocus
-        />
-        <input type="submit" name="gun" style="display: none" />
+        <div class="tooltip">
+          <input
+                  type="text"
+                  id="bullet"
+                  class="bullet-control"
+                  name="content"
+                  placeholder="Say something..."
+                  autocomplete="off"
+          />
+          <input type="submit" name="gun" class="submit-button" />
+        </div>
       </div>
     </form>
-    <style>
-      .bullet-gun {
-        opacity: 70%;
-      }
-      h4 {
-        color: #ffffff;
-        font-size: 18;
-        line-height: 0;
-        margin: 2;
-      }
-      #historyLine {
-        color: #ffffff;
-        text-align: left;
-        width: 100%;
-        height: auto;
-        font-size: 16;
-        font-family: Serif;
-      }
-    </style>
   </body>
 </html>

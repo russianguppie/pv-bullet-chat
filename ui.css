@@ -6,10 +6,9 @@
 .tooltip .tooltiptext {
   visibility: hidden;
   font-size: 0.8rem;
-  background-color: #666;
+  background-color: gray;
   color: #fff;
   text-align: center;
-  border-radius: 5px;
   padding: 5px 10px;
   white-space: nowrap;
 
@@ -27,51 +26,73 @@
 [class^="bullet-"],
 [class*=" bullet-"] {
   font-size: 1rem;
-  border-radius: 5px;
 }
 
 .bullet-gun {
+  opacity: 70%;
+  margin: 5px;
   position: fixed;
   bottom: 0;
   right: 0;
   font-size: 0 !important;
+  padding: 10px 10px 10px 60px;
   background-image: linear-gradient(180deg, #1b2530 0, rgba(27, 37, 48, 0.85));
-  padding: 10px 5px 10px 5px;
 }
 
 .bullet-control-sm {
-  margin-right: 0.5rem;
+  margin-right: 0rem;
+}
+
+.submit-button {
+  display: none;
 }
 
 input[type="range"].bullet-control-sm {
   height: 0.5rem;
-  width: 50px;
+  width: 55px;
   margin-top: 0.5rem;
+  background-color: grey;
 }
 
 input[type="text"].bullet-control {
   width: fit-content;
+  background-color: grey;
+}
+
+input[type="color"].bullet-control-sm {
+  height: 24px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
 }
 
 .bullet-control-row {
   margin-bottom: 0.2rem;
+  margin-left: -50px;
 }
 
 .bullet-control-row + * {
   margin-bottom: 0.2rem;
+  margin-left: -40px;
 }
 
 .bullet-history-box {
   margin-bottom: 0.2rem;
+  margin-left: -40px;
 }
 
 .bullet-history-box + * {
   margin-bottom: 0.2rem;
+  margin-left: -40px;
 }
 
 .bullet-open-advanced {
-  width: 24px;
-  margin-left: -40px;
+  width: 28px;
+  height: auto;
+  margin-left: -50px;
+  margin-bottom: -10px;
 }
 
 .bullet-open-advanced + * {
@@ -80,7 +101,10 @@ input[type="text"].bullet-control {
 
 .bullet-open-history {
   width: 28px;
-  margin-left: -16px;
+  height: auto;
+  margin-bottom: -12px;
+  margin-left: -18px;
+  margin-right: 5px;
 }
 
 .bullet-open-history + * {
@@ -93,4 +117,23 @@ input[type="text"].bullet-control {
 
 .bullet-history {
   display: none;
+}
+
+h4 {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 0;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  margin-left: -10px;
+}
+
+#historyLine {
+  color: #ffffff;
+  text-align: left;
+  width: 100%;
+  height: auto;
+  font-size: 16px;
+  margin-left: -10px;
+  margin-top: 3px;
 }
