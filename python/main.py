@@ -4,10 +4,18 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def welcome():
-    return json.dumps({'name': 'gali',
-                       'email': 'mengxiw@outlook.com'})
+@app.route('/bullets', methods=['GET'])
+def get_bullets():
+    rsp = []
+    for i in range(10):
+        bullet_json = json.dumps(
+            {'user': 'remoteUser',
+             'message': 'sampe message ' + str(i),
+             'order': i}
+        )
+        rsp.append(bullet_json)
+        
+    return json.dumps(rsp)
 
 @app.route('/', methods=['POST'])
 def update_record():
