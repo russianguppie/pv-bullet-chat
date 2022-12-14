@@ -12,7 +12,7 @@ brew install sqlite
 brew install python
 
 # Install python dependencies
-pip3 install ./python/requirements.txt
+pip3 install -r ./python/requirements.txt
 ```
 2. Run Function
 ```

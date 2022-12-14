@@ -18,5 +18,5 @@ def init():
     conn = database_init.init_database()
     
 if __name__ == '__main__':
-    main()
+    init()
     app.run("", 8080)
