@@ -189,7 +189,7 @@ async function saveToDB(str) {
         "video": "prime video",
         "timeline": "00:00:00"
     }
-    const response = await fetch('http://localhost:8080/', {
+    const response = await fetch('http://localhost:8080/bullets', {
         method: 'POST',
         body: JSON.stringify(bulletRecord), // string or object
         headers: {

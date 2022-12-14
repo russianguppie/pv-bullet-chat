@@ -38,3 +38,28 @@ curl http://127.0.0.1:8080/bullets\?startTime\=00:00:00\&endTime\=00:00:03
 # Response
 ["{\"user\": \"testUser1\", \"message\": \"This is a sample bullet 1\", \"order\": 1}", "{\"user\": \"testUser2\", \"message\": \"This is a sample bullet 2\", \"order\": 2}", "{\"user\": \"testUser3\", \"message\": \"This is a sample bullet 3\", \"order\": 3}", "{\"user\": \"testUser1\", \"message\": \"This is a sample bullet 4\", \"order\": 4}"]
 ```
+
+Post Bullet Endpoint
+
+Payload
+
+should be jsons tring consisting of those fields:
+'user',
+'message',
+'video',
+'timeline'
+
+Example:
+```
+mcurl -v -L  POST --header 'Content-Type: application/json' -d @test.json 'http://localhost:8080/bullets'
+
+@test.json format:
+
+{
+  "user": "gali",
+  "message": "tyotot",
+  "video": "videoname",
+  "timeline": "12:00:00"
+
+}
+```

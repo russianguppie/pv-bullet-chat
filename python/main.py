@@ -37,7 +37,7 @@ def get_bullets():
         
     return json.dumps(rsp)
 
-@app.route('/', methods=['POST'])
+@app.route('/bullets', methods=['POST'])
 def update_record():
     bulletChatJson = json.loads(request.data)
     record = (
