@@ -1,8 +1,10 @@
 import database_init
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
+CORS(app)
 conn = database_init.init_database()
 
 @app.route('/bullets', methods=['GET'])
@@ -28,7 +30,8 @@ def update_record():
     bulletChatJson['timeline']
     )
     database_init.create_bullet(conn, record)
-    return {'status': 'great success'}
+    return {'status': 'great success',
+            'record': record}
 
 if __name__ == '__main__':
     app.run("", 8080)

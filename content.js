@@ -66,6 +66,7 @@
 
   function shoot(bullet) {
       if (!shouldFilter(sanitize(bullet["content"]))) {
+          saveToDB(sanitize(bullet["content"]));
           let $bullet = $("<span>")
               .prop("class", "bullet")
               .text(sanitize(bullet["content"]))
@@ -180,3 +181,23 @@ function shouldFilter(str) {
 }
 
 window.onload = reset_alert_count;
+
+async function saveToDB(str) {
+    const bulletRecord = {
+        "user": "gali2",
+        "message": str,
+        "video": "prime video",
+        "timeline": "00:00:00"
+    }
+    const response = await fetch('http://localhost:8080/', {
+        method: 'POST',
+        body: JSON.stringify(bulletRecord), // string or object
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).catch(error =>console.log(error));
+    const myJson = await response.json(); //extract JSON from the http response
+    console.log(myJson)
+
+}
+
