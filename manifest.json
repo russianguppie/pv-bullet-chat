@@ -28,6 +28,14 @@
     },
     "default_title": "Bullet Screen"
   },
+  "commands": {
+    "random": {
+      "suggested_key": {
+        "default": "Alt+Shift+L"
+      },
+      "description": "Spam random messages."
+    }
+  },
   "permissions": ["tabs"],
   "web_accessible_resources": ["ui.html"]
 }
