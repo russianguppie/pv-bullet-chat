@@ -65,6 +65,7 @@
   }
 
   function shoot(bullet) {
+      let isYoutube = url.includes("youtube.com");
       if (!shouldFilter(sanitize(bullet["content"]))) {
           saveToDB(sanitize(bullet["content"]));
           let $bullet = $("<span>")
@@ -80,9 +81,9 @@
                   "z-index": 10000,
               })
               .appendTo("body");
-          $bullet.css({right: -Math.floor(1.25 * $bullet.width()) + "px"});
+          $bullet.css({right: isYoutube ? "35%" : -Math.floor(1.25 * $bullet.width()) + "px"});
           $bullet.animate(
-              {right: "100%"},
+              {right: isYoutube ? "90%" : "100%"},
               bullet["duration"],
               "linear",
               function () {
