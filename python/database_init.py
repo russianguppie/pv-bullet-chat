@@ -30,7 +30,7 @@ def init_tables(conn):
     
 def drop_tables(conn):
     c = conn.cursor()
-    c.execute("DROP TABLE IF EXISTS bullets")
+    c.execute("DROP TABLE bullets")
 
 def create_bullet(conn, bullet):
     sql = ''' INSERT INTO bullets(user,message,video,timeline)

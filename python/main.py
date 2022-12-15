@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 conn = database_init.init_database()
 
-BULLET_DEFAULT_BATCH_SIZE = 10
+BULLET_DEFAULT_BATCH_SIZE = 20
 
 @app.route('/bullets', methods=['GET'])
 def get_bullets():
